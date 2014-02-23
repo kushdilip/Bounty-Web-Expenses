@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Bounty-Web-Expenses</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <script type="text/x-handlebars">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <a class="brand" href="#">Select:</a>
+        <ul class="nav">
+          <li>{{#link-to 'users'}}1. Create group{{/link-to}}</li>
+          <li>{{#link-to 'expences'}}2. Enter expences{{/link-to}}</li>
+          <li>{{#link-to 'computepayments'}}3. Compute payments{{/link-to}}</li>
+        </ul>
+      </div>
+    </div>
+
+    {{outlet}}
+  </script>
+
+  <script type="text/x-handlebars" id="users">
+	  <ul id="horizontal">
+		<li><button {{action 'deleteUsers'}}>Delete selected</button></li>
+		<li><button {{action '#'}}>Compute payments</button></li>
+	  </ul>
+          <table class='table' border="2">
+            <thead>
+                <tr>
+			<th>all</th>
+			<th></th>
+			<th>Person name</th>
+			<th>Display name</th>
+			<th>Comment</th>
+			<th>Delete</th>
+		</tr>
+            </thead>
+	    <tr>
+		<td>
+			{{to_be_deleted}}
+		</td>
+		<td>
+			<button {{action "createUser"}}>Add</button>
+		</td>
+		<td>
+			{{input type="text" id="new-name" value=newName}}
+		</td>
+		<td>
+               		{{input type="text" id="new-display_name" value=newDisplay_name}}
+		</td>
+		<td>
+               		{{input type="text" id="new-comment" value=newComment}}
+		</td>
+		<td>
+			
+		</td>
+            </tr>
+            {{#each itemController="user"}}
+	    <tr id="users-list" {{bind-attr class="isEditing:editing"}}>
+		{{#if isEditing}}
+    		<td>
+		</td>
+		<td>
+			<button {{action 'doneEditingUser'}}>Done</button>
+		</td>
+		<td>
+			{{input type="text" id="edited-name" value=name}}
+		</td>
+		<td>
+               		{{input type="text" id="edited-display_name" value=display_name}}
+		</td>
+		<td>
+               		{{input type="text" id="edited-comment" value=comment}}
+		</td>
+		<td>
+		</td>
+		{{else}}
+            
+		<td>
+               		<input type="checkbox" {{action 'selectUser'}} class="toggle">
+		</td>
+		<td>
+               		<button {{action 'editUser'}}>Edit</button>
+		</td>
+		<td>
+               		{{name}}
+		</td>
+		<td>
+               		{{display_name}}
+		</td>
+		<td>
+               		{{comment}}
+		</td>
+		<td>
+			<button style="border:None; background:white;" {{action "removeUser"}} class="destroy">X</button>
+		</td>
+		{{/if}}
+            </tr>
+		 
+            {{/each}}
+          </table>
+        <div class="span9">
+          {{outlet}}
+        </div>
+  </script>
+
+
+
+
+
+  <script type="text/x-handlebars" id="expences">
+	  <ul id="horizontal">
+		<li><button {{action '#'}}>Delete selected</button></li>
+	  </ul>
+          <table class='table' border="2">
+            <thead>
+                <tr>
+			<th>all</th>
+			<th></th><th>#</th>
+			<th>Date</th>
+			<th>Description</th>
+			<th>Who paid</th>
+			<th>Amount</th>
+			<th>For whom</th>
+		</tr>
+            </thead>
+	    <tr>
+		<td>
+			{{to_be_deleted}}
+		</td>
+		<td>
+			<button {{action "createExpense"}}>Add</button>
+		</td>
+		<td>
+			{{input type="text" id="new-date" value=newDate}}
+		</td>
+		<td>
+               		{{input type="text" id="new-description" value=newDescription}}
+		</td>
+		<td>
+               		{{input type="text" id="new-payer" value=newPayer}}
+		</td>
+		<td>
+			{{input type="text" id="new-amount" value=newAmount}}
+		</td>
+		<td>
+			{{input type="text" id="new-users" value=newUsers}}
+		</td>
+            </tr>
+            {{#each itemController="expense"}}
+	    <tr id="users-list" {{bind-attr class="isEditing:editing"}}>
+		{{#if isEditing}}
+    		<td>
+		</td>
+		<td>
+			<button {{action 'doneEditingExpense'}}>Done</button>
+		</td>
+		<td>
+			{{input type="text" id="edited-date" value=date}}
+		</td>
+		<td>
+               		{{input type="text" id="edited-description" value=description}}
+		</td>
+		<td>
+               		{{input type="text" id="edited-payer" value=payer}}
+		</td>
+		<td>
+               		{{input type="text" id="edited-payer" value=amount}}
+		</td>
+		<td>
+               		{{input type="text" id="edited-payer" value=users}}
+		</td>
+		<td>
+		</td>
+		{{else}}
+            
+		<td>
+               		<input type="checkbox" {{action 'selectExpense'}} class="toggle">
+		</td>
+		<td>
+               		<button {{action 'editExpense'}}>Edit</button>
+		</td>
+		<td>
+               		{{date}}
+		</td>
+		<td>
+               		{{description}}
+		</td>
+		<td>
+               		{{payer}}
+		</td>
+		<td>
+               		{{amount}}
+		</td>
+		<td>
+               		{{users}}
+		</td>
+		<td>
+			<button style="border:None; background:white;" {{action "removeExpense"}} class="destroy">X</button>
+		</td>
+		{{/if}}
+            </tr>
+		 
+            {{/each}}
+          </table>
+        <div class="span9">
+          {{outlet}}
+        </div>
+  </script>
+
+
+  <script type="text/x-handlebars" id="computepaymets">
+  </script>
+
+
+  <script src="js/libs/jquery.min.js"></script>
+  <script src="js/libs/handlebars.js"></script>
+  <script src="js/libs/ember.js"></script>
+  <script src="js/libs/ember-data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/models/user.js"></script>
+  <script src="js/models/expense.js"></script>
+  <script src="js/controllers/users_controller.js"></script>
+  <script src="js/controllers/user_controller.js"></script>
+  <script src="js/controllers/expenses_controller.js"></script>
+  <script src="js/controllers/expense_controller.js"></script>
+
+</body>
+</html>

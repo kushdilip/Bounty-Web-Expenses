@@ -1,0 +1,32 @@
+App = Ember.Application.create();
+App.ApplicationAdapter = DS.FixtureAdapter.extend();
+
+
+
+
+
+
+App.UsersController = Ember.ArrayController.extend({
+  actions: {
+    createUser: function() {
+      // Get the todo title set by the "New Todo" text field
+      var name = this.get('newName');
+      if (!name.trim()) { return; }
+
+      // Create the new user model
+      var user = this.store.createRecord('user', {
+        name: name,
+        display_name: 'aa',
+	comment: 'bb'
+      });
+
+      // Clear the "New User" text field
+      this.set('newName', '');
+      this.set('newDisplay_name', '');
+      this.set('newComment', '');
+
+      // Save the new model
+      users.save();
+    }
+  }
+});
