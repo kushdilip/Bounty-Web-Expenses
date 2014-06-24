@@ -1,0 +1,41 @@
+<div id="operation-btn" class="btn-group">
+	<button type="button" class="btn btn-default btn-sm">Add Person[+]</button>
+    <button type="button" class="btn btn-default btn-sm" disabled="true">Delete Selected</button>
+    <button type="button" class="btn btn-default btn-sm">Filter</button>
+    {{!-- <button type="button" class="btn btn-default btn-sm">Full View</button> --}}
+    <button type="button" class="btn btn-default btn-sm">Compute Payments ></button>
+</div>
+<br><br>
+<div class="table-responsive">
+	<table class="table table-striped table-bordered table-hover">
+		<thead>
+			<tr>
+				<th><button type="button" class="btn btn-link btn-xs">all</button></th>
+				<th>#</th>
+				<th>Date</th>
+				<th>Description</th>
+				<th>Who Paid?</th>
+				<th>Amount</th>
+				<th>For Whom?</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each expense in model}}
+				<tr>
+					<td>{{input type="checkbox"}}</td>
+					<td><button type="button" class="btn btn-default btn-xs">edit</button></td>
+					<td>{{format-date expense.date}}</td>
+					<td>{{expense.description}}</td>
+					<td>{{expense.paidBy.nick}}</td>
+					<td>{{expense.amount}}</td>
+					<td>
+						{{#each member in expense.paidFor}}
+							{{member.nick}}
+						{{/each}}
+					</td>
+					{{!-- <td>{{expense.paidFor}}</td> --}}
+				</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</div>

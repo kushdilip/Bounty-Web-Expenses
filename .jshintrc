@@ -2,7 +2,8 @@
   "predef": {
     "document": true,
     "window": true,
-    "BountyWebExpensesENV": true
+    "BountyWebExpensesENV": true,
+    "moment": true
   },
   "browser" : true,
   "boss" : true,
