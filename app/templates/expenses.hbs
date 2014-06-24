@@ -1,5 +1,5 @@
 <div id="operation-btn" class="btn-group">
-	<button {{action "openModal" "new-expense"}} type="button" class="btn btn-default btn-sm">Add Expense[+]</button>
+	<button {{action "openModal" "expense-modal"}} type="button" class="btn btn-default btn-sm">Add Expense[+]</button>
     <button type="button" class="btn btn-default btn-sm" disabled="true">Delete Selected</button>
     <button type="button" class="btn btn-default btn-sm">Filter</button>
     {{!-- <button type="button" class="btn btn-default btn-sm">Full View</button> --}}
@@ -23,7 +23,7 @@
 			{{#each expense in model}}
 				<tr>
 					<td>{{input type="checkbox"}}</td>
-					<td><button type="button" class="btn btn-default btn-xs">edit</button></td>
+					<td><button {{action 'openModal' 'expense-modal' expense}} class="btn btn-default btn-xs">edit</button></td>
 					<td>{{format-date expense.date}}</td>
 					<td>{{expense.description}}</td>
 					<td>{{expense.paidBy.nick}}</td>

@@ -9,7 +9,7 @@
 <div class="overlay" {{action "close"}}> 
 </div>
 <div class="modal-dialog">
-      <h3 class="flush--top">Edit Person</h5>
+      <h3 class="flush--top">{{#if id}} Edit Person {{else}} Add Person {{/if}} </h5>
        <p>{{input value=name}}</p>
       <p>{{input value=nick}}</p>
       <p>{{input value=description}}</p>
