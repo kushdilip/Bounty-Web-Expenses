@@ -1,0 +1,11 @@
+html, body {
+  margin: 20px;
+}
+
+li.active a {
+	color: white;
+};
+
+/*button {
+    margin: 10px !important;
+}*/
