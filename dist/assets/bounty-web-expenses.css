@@ -1,11 +1,49 @@
 html, body {
-  margin: 20px;
+  margin: 5px 5px 20px 5px;
+}
+
+.panel {
+  border: 0;
 }
 
 li.active a {
 	color: white;
 };
 
-/*button {
-    margin: 10px !important;
-}*/
+#main {
+	position: fixed;
+}
+
+button {
+    margin-left: 5px !important;
+}
+
+/*Modal Styling*/
+* {
+  box-sizing: border-box;
+}
+
+.modal-dialog {
+  position: relative;
+  margin: 10px auto;
+  width: 300px;
+  background-color: #fff;
+  padding: 1em;
+}
+
+input {
+  width: 100%;
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.flush--top {
+  margin-top: 0;  
+}

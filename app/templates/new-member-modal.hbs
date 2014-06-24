@@ -1,0 +1,17 @@
+{{!-- {{#modal-dialog action="close"}}
+	<h3 class="flush--top">Edit Person</h5>
+	<p>{{input value=name}}</p>
+  	<p>{{input value=nick}}</p>
+  	<p>{{input value=description}}</p>
+  	<button {{action "close"}}>Save</button>
+{{/modal-dialog}}
+ --}}
+<div class="overlay" {{action "close"}}> 
+</div>
+<div class="modal-dialog">
+      <h3 class="flush--top">Edit Person</h5>
+       <p>{{input value=name}}</p>
+      <p>{{input value=nick}}</p>
+      <p>{{input value=description}}</p>
+      <button {{action "close"}}>Save</button>
+</div>
