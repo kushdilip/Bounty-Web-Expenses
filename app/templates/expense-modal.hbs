@@ -1,10 +1,10 @@
 <div class="overlay" {{action "close"}}> 
 </div>
 <div class="modal-dialog">
-      <h3 class="flush--top">{{#if id}} Edit Expense {{else}} Add Expense {{/if}} </h5>
-       <p>{{input value=amount}}</p>
-       <p>{{input value=date}}</p>
-      <p>{{input value=description}}</p>
-      <p>{{input value=paidBy.nick}}</p>
-      <button {{action "close"}}>Save</button>
+    <h3 class="flush--top">{{#if id}} Edit Expense {{else}} Add New Expense {{/if}} </h5><hr>
+    <p>{{input value=amount}}</p>
+    <p>{{input value=date}}</p>
+    <p>{{input value=description}}</p>
+    <p>{{input value=paidBy.nick}}</p>
+    <button {{action "close"}}>Save</button>
 </div>

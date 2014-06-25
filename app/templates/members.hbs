@@ -1,7 +1,7 @@
 <div id="operation-btn" class="btn-group">
 	<button {{action 'openModal' 'member-modal'}} class="btn btn-default btn-sm">Add Person[+]</button>
     <button class="btn btn-default btn-sm" disabled="true">Delete Selected</button>
-    <button class="btn btn-default btn-sm">Enter Expenses ></button>
+    {{#link-to 'expenses'}}<button class="btn btn-default btn-sm">Enter Expenses ></button>{{/link-to}}
 </div>
 <br><br>
 <div class="table-responsive">
