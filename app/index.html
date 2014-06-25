@@ -7,18 +7,18 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {{BASE_TAG}}
+    <!-- {{BASE_TAG}} -->
 
-    <link rel="stylesheet" href="/assets/vendor.css">
-    <link rel="stylesheet" href="/assets/bounty-web-expenses.css">
+    <link rel="stylesheet" href="assets/vendor.css">
+    <link rel="stylesheet" href="assets/bounty-web-expenses.css">
   </head>
   <body>
     <script>
       window.BountyWebExpensesENV = {{ENV}};
       window.EmberENV = window.BountyWebExpensesENV.EmberENV;
     </script>
-    <script src="/assets/vendor.js"></script>
-    <script src="/assets/bounty-web-expenses.js"></script>
+    <script src="assets/vendor.js"></script>
+    <script src="assets/bounty-web-expenses.js"></script>
     <script>
       window.BountyWebExpenses = require('bounty-web-expenses/app')['default'].create(BountyWebExpensesENV.APP);
     </script>
