@@ -6,12 +6,24 @@
   	<button {{action "close"}}>Save</button>
 {{/modal-dialog}}
  --}}
-<div class="overlay" {{action "close"}}> 
+<div class="overlay" {{action "cancel"}}> 
 </div>
 <div class="modal-dialog">
-      <h3 class="flush--top">{{#if id}} Edit Person {{else}} Add New Person {{/if}} </h5><hr>
-       <p>{{input value=name}}</p>
-      <p>{{input value=nick}}</p>
-      <p>{{input value=description}}</p>
-      <button {{action "close"}}>Save</button>
+      {{id}}
+      {{#if model.id}}
+        <h3 class="flush--top">Edit Person</h5><hr>
+        <p>{{input value=model.name}}</p>
+        <p>{{input value=model.nick}}</p>
+        <p>{{input value=model.description}}</p>
+        <button {{action "close" this}}>Save</button>
+      {{else}}
+          <h3 class="flush--top">Add Person</h5><hr>
+          {{!-- <form {{action close this on="submit"}}> --}}
+          <p>{{input value=name placeholder="Name"}}</p>
+          <p>{{input value=nick placeholder="Nick Name"}}</p>
+          <p>{{input value=description placeholder="Description"}}</p>
+          <button {{action "close"}}>Add</button>
+          <button {{action "cancel"}}>Cancel</button>
+          {{!-- </form> --}}
+      {{/if}}
 </div>

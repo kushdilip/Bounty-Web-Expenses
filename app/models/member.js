@@ -1,7 +1,7 @@
 var Member = DS.Model.extend({
 	name: DS.attr('string'),
 	nick: DS.attr('string'),
-	description: DS.attr('string')
+	description: DS.attr('string')	
 });
 
 Member.reopenClass({
