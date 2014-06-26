@@ -1,7 +1,18 @@
 Bounty-Web-Expenses
 ===================
-Check the [demo](http://bwe-dilip.herokuapp.com)
+---
+##Additions By Me
+> Check the [demo](http://bwe-dilip.herokuapp.com) deployed on heroku.
 
+**Important & Helpful Links**
+> - For Navbar : [jsfiddle](http://jsfiddle.net/dWcUp/171/) [Stackoverflow Question on right way to do navbar for ember](http://stackoverflow.com/questions/11318572/right-way-to-do-navigation-with-ember)
+> - Ember-cli Documentation : [ember-cli](http://iamstef.net/ember-cli/)
+> - Ember Naming Convention(must for begginers) : [ember-doc](http://emberjs.com/guides/concepts/naming-conventions/)
+> - Short and Sweet Twitter Bootstrap Tutorial : [twitter-bootstrap](http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/bootstrap-buttons.php)
+> - Ember.js Modal Dialog Implementation: [jsfiddle](http://emberjs.jsbin.com/lokozegi/110/edit)
+> - Deployment to Heroku : [ember-cli heroku deployment with buildpack](http://iamstef.net/ember-cli/#deployments)
+
+---
 
 Tracking expenses accurately can be the biggest headache among a group of roommates or co-workers. There are many apps which do this kind of task.
 
@@ -31,10 +42,3 @@ Summary Sheet
 
 Ember.js, Backbone.js, D3.js, Node.js, Phantom.js, CouchDB
 
-**Important & Helpful Links**
-> - For Navbar : [jsfiddle](http://jsfiddle.net/dWcUp/171/) [Stackoverflow Question on right way to do navbar for ember](http://stackoverflow.com/questions/11318572/right-way-to-do-navigation-with-ember)
-> - Ember-cli Documentation : [ember-cli](http://iamstef.net/ember-cli/)
-> - Ember Naming Convention(must for begginers) : [ember-doc](http://emberjs.com/guides/concepts/naming-conventions/)
-> - Short and Sweet Twitter Bootstrap Tutorial : [twitter-bootstrap](http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/bootstrap-buttons.php)
-> - Ember.js Modal Dialog Implementation: [jsfiddle](http://emberjs.jsbin.com/lokozegi/110/edit)
-> - Deployment to Heroku : [ember-cli heroku deployment with buildpack](http://iamstef.net/ember-cli/#deployments)
