@@ -2,9 +2,15 @@ html, body {
   margin: 5px 5px 20px 5px;
 }
 
+#main {
+  position: relative;
+}
+
 .panel {
   border: 0;
 }
+
+a {cursor: pointer}
 
 li.active a {
 	color: white;
@@ -24,11 +30,14 @@ button {
 }
 
 .modal-dialog {
-  position: relative;
-  margin: 10px auto;
+  position: absolute;
+  margin: 10px 10px 10px 10px;
   width: 300px;
   background-color: #fff;
   padding: 1em;
+  top: 30%;
+  left: 40%;
+  z-index: 3;
 }
 
 input {

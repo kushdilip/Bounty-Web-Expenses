@@ -2,9 +2,8 @@ var MemberModalController = Em.Controller.extend({
 	content: {},
 	actions: {
         close: function(data) {
-        	var foo = this.getProperties("model")
-        	console.log(data);
         	if (data && data.get('id')) {
+	        	console.log(data);
         		console.log("member information edited")
         	}
         	else {

@@ -1,7 +1,6 @@
 <div id="main">	
 	<div class="panel panel-primary">
-		<div class="panel-heading"><h4><strong>Bouty Web Expenses</strong></h4></div>
-			<!-- Nav -->
+		<!-- Nav -->
 		{{partial 'navbar'}}
 		<div class="panel-body">
 			<div class="container">
@@ -10,12 +9,12 @@
 						{{outlet}}
 					</div>
 					<div class="col-md-4">
-						{{outlet modal}}
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+{{outlet modal}}
 {{partial 'footer'}}
 

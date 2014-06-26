@@ -1,10 +1,25 @@
-<div class="overlay" {{action "close"}}> 
+<div class="overlay" {{action "cancel"}}> 
 </div>
 <div class="modal-dialog">
-    <h3 class="flush--top">{{#if id}} Edit Expense {{else}} Add New Expense {{/if}} </h5><hr>
-    <p>{{input value=amount}}</p>
-    <p>{{input value=date}}</p>
-    <p>{{input value=description}}</p>
-    <p>{{input value=paidBy.nick}}</p>
-    <button {{action "close"}}>Save</button>
+	{{#if model.id}}
+	    <h3 class="flush--top">Edit Expense</h5><hr>
+	    <p>{{input value=amount autofocus="autofocus"}}</p>
+	    <p>{{input value=date}}</p>
+	    <p>{{input value=description}}</p>
+	    {{!-- <p>{{input value=paidBy.nick}}</p> --}}
+	   	{{!-- {{#if if-equal 'a' 'a'}}
+	   		<p>I am equal</p>
+	   	{{/if}} --}}
+	    <select>
+		    {{#each item in members}}
+		      <option value="{{item.nick}}">{{item.nick}}</option>
+		    {{/each}}
+	    </select>
+	    <button {{action "close" this}}>Save</button>
+	{{else}}
+	    <h3 class="flush--top">Add New Expense</h5><hr>
+        <button {{action "close"}}>Add</button>
+        <button {{action "cancel"}}>Cancel</button>	    
+	{{/if}}
+
 </div>
