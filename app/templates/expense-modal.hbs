@@ -6,15 +6,10 @@
 	    <p>{{input value=amount autofocus="autofocus"}}</p>
 	    <p>{{input value=date}}</p>
 	    <p>{{input value=description}}</p>
-	    {{!-- <p>{{input value=paidBy.nick}}</p> --}}
-	   	{{!-- {{#if if-equal 'a' 'a'}}
-	   		<p>I am equal</p>
-	   	{{/if}} --}}
-	    <select>
-		    {{#each item in members}}
-		      <option value="{{item.nick}}">{{item.nick}}</option>
-		    {{/each}}
-	    </select>
+	   	<select>
+	   		{{select-options members paidBy.nick}}
+	   	</select>
+	    <hr>
 	    <button {{action "close" this}}>Save</button>
 	{{else}}
 	    <h3 class="flush--top">Add New Expense</h5><hr>

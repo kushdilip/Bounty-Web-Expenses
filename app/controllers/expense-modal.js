@@ -1,6 +1,5 @@
 var ExpenseModalController = Em.ObjectController.extend({
 	members: function (data) {
-		console.log(data)
 		return this.store.all('member');
 	}.property(),
 
