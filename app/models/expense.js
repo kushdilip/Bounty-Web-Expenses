@@ -10,7 +10,8 @@ Expense.reopenClass({
 	FIXTURES: [
 		{id: 1, date: new Date(), description: 'Lunch', paidBy: 1, paidFor: [1, 2], amount: 300},
 		{id: 2, date: new Date(), description: 'Dinner', paidBy: 2, paidFor: [1], amount: 400},
-		{id: 3, date: new Date(), description: 'Snacks', paidBy: 2, paidFor: [2], amount: 50}
+		{id: 3, date: new Date(), description: 'Snacks', paidBy: 2, paidFor: [2], amount: 50},
+		{id: 4, date: new Date(), description: 'Pastry', paidBy: 1, paidFor: [1], amount: 90}
 	]
 });
 

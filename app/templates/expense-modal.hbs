@@ -6,15 +6,23 @@
 	    <p>{{input value=amount autofocus="autofocus"}}</p>
 	    <p>{{input value=date}}</p>
 	    <p>{{input value=description}}</p>
-	   	<select>
-	   		{{select-options members paidBy.nick}}
-	   	</select>
+		{{!--<select>
+	   		{{select-options members changePaidBydBy.nick}}
+	   	</select> --}}
+	   	{{paidBy.id}}
+	   	{{view Ember.Select
+	   		content=members
+	   		optionValuePath="content.id"
+	   		optionLabelPath="content.nick"
+	   		valueBinding="paidById"
+	   		selectionBinding="selectedMember"
+		}}
 	    <hr>
 	    <button {{action "close" this}}>Save</button>
 	{{else}}
 	    <h3 class="flush--top">Add New Expense</h5><hr>
         <button {{action "close"}}>Add</button>
-        <button {{action "cancel"}}>Cancel</button>	    
+        <button {{action "cancel"}}>Cancel</button>
 	{{/if}}
 
 </div>

@@ -11,7 +11,8 @@ Bounty-Web-Expenses
 > - Short and Sweet Twitter Bootstrap Tutorial : [twitter-bootstrap](http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/bootstrap-buttons.php)
 > - Ember.js Modal Dialog Implementation: [jsfiddle](http://emberjs.jsbin.com/lokozegi/110/edit)
 > - Deployment to Heroku : [ember-cli heroku deployment with buildpack](http://iamstef.net/ember-cli/#deployments)
-
+> - Helper for select Dropdown : [select dropdown using helper](http://htmlr.tumblr.com/post/33202449716/country-dropdown-helper-for-handlebars-js)
+> - Reading Value from Ember.Select: [stackoverflow answer](http://stackoverflow.com/a/19818742/877492)
 ---
 
 Tracking expenses accurately can be the biggest headache among a group of roommates or co-workers. There are many apps which do this kind of task.

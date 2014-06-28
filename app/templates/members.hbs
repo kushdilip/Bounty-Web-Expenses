@@ -1,5 +1,5 @@
 <div id="operation-btn" class="btn-group">
-	<button {{action 'openModal' 'member-modal'}} class="btn btn-default btn-sm">Add Person[+]</button>
+	<button {{action 'openMemberModal' 'member-modal'}} class="btn btn-default btn-sm">Add Person[+]</button>
     <button class="btn btn-default btn-sm" disabled="true">Delete Selected</button>
     {{#link-to 'expenses'}}<button class="btn btn-default btn-sm">Enter Expenses ></button>{{/link-to}}
 </div>
@@ -19,7 +19,7 @@
 			{{#each person in model}}
 				<tr>
 					<td>{{input type="checkbox"}}</td>
-					<td><button {{action 'openModal' 'member-modal' person}} class="btn btn-default btn-xs">edit</button></td>
+					<td><button {{action 'openMemberModal' 'member-modal' person}} class="btn btn-default btn-xs">edit</button></td>
 					{{!-- <td>{{person.id}}</td> --}}
 					<td>{{person.name}}</td>
 					<td>{{person.nick}}</td>
