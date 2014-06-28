@@ -7,6 +7,7 @@ export default Ember.Component.extend({
     propertyPath: null,
     /* All possible elements, to be selected */
     elements: null,
+       
     elementsOfProperty: function() {
         return this.get('model.' + this.get('propertyPath'));
     }.property()

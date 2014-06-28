@@ -1,7 +1,7 @@
 var ExpenseModalController = Em.Controller.extend({
 	content: {},
 	selectedPayer: null,
-	
+
 	childList: function () {
 		return this.store.find('member');
 	}.property('model'),
@@ -26,12 +26,42 @@ var ExpenseModalController = Em.Controller.extend({
 	        		expense.set('paidBy', m);
 	        		expense.save();
 	        	})
-
         		console.log("expense information edited")
         	}
         	else {
 	        	var id = this.store.all('expense').get('length') + 1;
-	        	console.log("I'm from add box",id);
+	        	var date = this.get('model.date');
+	        	var amount = this.get('model.amount')
+	        	var description = this.get('model.description');
+	        	var memberId = this.get('selectedPayer').id;
+	        	var paidFor = this.get('model.paidFor');
+	        	// console.log("I'm from add box",id,  description, memberId, amount, paidFor);
+
+	        	var expense = this.store.createRecord('expense', {
+	        			id: id,
+	        			amount: amount,
+	        			date: date,
+	        			description: description,
+	        			paidBy: null,
+	        			// paidFor: null
+	        		});
+
+	        	this.store.find('member', memberId).then(function (m) {
+	        		expense.set('paidBy', m);
+	        	});
+
+	        	expense.get('paidFor').then(function (selectedPaidFor) {
+	        		paidFor.forEach(function (pf) {
+	        			console.log(pf.id)
+	        			that.store.find('member', pf.id).then(function (m) {
+	        				selectedPaidFor.addObject(m);
+	        				// expense.set('paidFor', selectedPaidFor);
+	        				expense.save();
+	        			});
+	        		});
+	        	});
+				
+
         	}
 
             return this.send('closeModal');

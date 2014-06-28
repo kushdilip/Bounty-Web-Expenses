@@ -10,10 +10,15 @@ var ApplicationRoute = Ember.Route.extend({
     
     openExpenseModal: function(modalName, model) {
       if (model){
-        // this.set('content', {});
         model.set('paidById', model.get('paidBy').id);
       }
+      else {
+        model = {amount: 100, date: new Date(), description: "sfs", paidFor: []};
+        this.controllerFor(modalName).set('selectedPayer', null);
+      }
+
       this.controllerFor(modalName).set('model', model);
+
       return this.render(modalName, {
         into: 'application',
         outlet: 'modal'

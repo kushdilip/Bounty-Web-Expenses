@@ -6,23 +6,23 @@
 	    <p>{{input value=model.amount autofocus="autofocus"}}</p>
 	    <p>{{view 'date-field' dateBinding="model.date" id="date"}}</p>
 	    <p>{{input value=model.description}}</p>
+	    {{paidById}}
 	   	{{view Ember.Select
 	   		content=members
 	   		optionValuePath="content.id"
 	   		optionLabelPath="content.nick"
-	   		valueBinding="paidById"
+	   		valueBinding=model.paidById
 	   		selectionBinding="selectedPayer"
 		}}
 		<p>
 			{{checkbox-select model=model propertyPath="paidFor" elements=childList labelPath="nick"}}
 		</p>
-	    <hr>
 	    <button {{action "close" this}}>Save</button>
 	{{else}}
 	    <h3 class="flush--top">Add New Expense</h5><hr>
-	    <p>{{input value=amount placeholder="amount" autofocus="autofocus"}}</p>
-	    <p>{{view 'date-field' dateBinding="date"}}</p>
-	    <p>{{input value=description}}</p>
+	    <p>{{input value=model.amount placeholder="amount" autofocus="autofocus"}}</p>
+	    <p>{{view 'date-field' dateBinding="model.date"}}</p>
+	    <p>{{input value=model.description placeholder="Description"}}</p>
 	    <p>{{view Ember.Select
 	   		content=members
 	   		optionValuePath="content.id"
@@ -31,8 +31,8 @@
 	   		selectionBinding="selectedPayer"
 		}}</p>
 		<p>
-			{{checkbox-select model=this propertyPath="paidFor" elements=childList labelPath="nick"}}
-		</p>		
+			{{checkbox-select model=model propertyPath="paidFor" elements=childList labelPath="nick"}}
+		</p>
         <button {{action "close"}}>Add</button>
         <button {{action "cancel"}}>Cancel</button>
 	{{/if}}
