@@ -1,5 +1,11 @@
-var ExpenseModalController = Em.ObjectController.extend({
-	selectedMember: null,
+var ExpenseModalController = Em.Controller.extend({
+	content: {},
+	selectedPayer: null,
+
+	childList: function () {
+		return this.store.find('member');
+	}.property('model'),
+	
 	members: function () {
 		return this.store.all('member').content.map(function (m) {
 			return {id: m.id, nick: m.get('nick')}
@@ -7,15 +13,20 @@ var ExpenseModalController = Em.ObjectController.extend({
 	}.property(),
 
 	actions: {
-		changePaidBy: function (context) {
-			console.log(context.$('select').val())
-			console.log("dude, changePaidBy")
-		},
         close: function(data) {
+        	var that = this;
         	if (data && data.get('id')) {
-	        	var id = data.get('id')
-	        	console.log(data, +data.id);
-	        	console.log(this.get('selectedMember'))
+	        	var expense = this.get('model');
+				var date = new Date(expense.get('date'));
+				expense.set('date', date);
+
+	        	var memberId = this.get('selectedPayer').id;
+
+	        	this.store.find('member', memberId).then(function (m) {
+	        		expense.set('paidBy', m);
+	        		expense.save();
+	        	})
+
         		console.log("expense information edited")
         	}
         	else {
@@ -26,9 +37,7 @@ var ExpenseModalController = Em.ObjectController.extend({
             return this.send('closeModal');
         },
         cancel: function () {
-			// console.log(this.getProperties('paidBy').paidBy.id)
-        	// this.set('paidById', );
-        	return this.send('closeModal', 'expense-modal');
+        	return this.send('closeModal');
         }
     }
 });

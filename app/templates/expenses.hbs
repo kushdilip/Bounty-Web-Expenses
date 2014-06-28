@@ -1,7 +1,7 @@
 <div id="operation-btn" class="btn-group">
 	<button {{action "openExpenseModal" "expense-modal"}} type="button" class="btn btn-default btn-sm">Add Expense[+]</button>
     <button type="button" class="btn btn-default btn-sm" disabled="true">Delete Selected</button>
-    <button type="button" class="btn btn-default btn-sm">Filter</button>
+    <button type="button" class="btn btn-default btn-sm" disabled="true">Filter</button>
     {{!-- <button type="button" class="btn btn-default btn-sm">Full View</button> --}}
     {{#link-to 'summary'}}<button class="btn btn-default btn-sm">Compute Payments ></button>{{/link-to}}
 </div>
@@ -26,7 +26,7 @@
 					<td><button {{action 'openExpenseModal' 'expense-modal' expense}} class="btn btn-default btn-xs">edit</button></td>
 					<td>{{format-date expense.date}}</td>
 					<td>{{expense.description}}</td>
-					<td>{{expense.paidBy.nick}} {{expense.paidBy.id}}</td>
+					<td>{{expense.paidBy.nick}}</td>
 					<td>{{expense.amount}}</td>
 					<td>
 						{{#each member in expense.paidFor}}

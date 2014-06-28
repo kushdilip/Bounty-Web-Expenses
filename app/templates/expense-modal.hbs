@@ -3,24 +3,33 @@
 <div class="modal-dialog">
 	{{#if model.id}}
 	    <h3 class="flush--top">Edit Expense</h5><hr>
-	    <p>{{input value=amount autofocus="autofocus"}}</p>
-	    <p>{{input value=date}}</p>
-	    <p>{{input value=description}}</p>
-		{{!--<select>
-	   		{{select-options members changePaidBydBy.nick}}
-	   	</select> --}}
-	   	{{paidBy.id}}
+	    <p>{{input value=model.amount autofocus="autofocus"}}</p>
+	    <p>{{view 'date-field' dateBinding="model.date" id="date"}}</p>
+	    <p>{{input value=model.description}}</p>
 	   	{{view Ember.Select
 	   		content=members
 	   		optionValuePath="content.id"
 	   		optionLabelPath="content.nick"
 	   		valueBinding="paidById"
-	   		selectionBinding="selectedMember"
+	   		selectionBinding="selectedPayer"
 		}}
+		<p>
+			{{checkbox-select model=model propertyPath="paidFor" elements=childList labelPath="nick"}}
+		</p>
 	    <hr>
 	    <button {{action "close" this}}>Save</button>
 	{{else}}
 	    <h3 class="flush--top">Add New Expense</h5><hr>
+	    <p>{{input value=amount placeholder="amount" autofocus="autofocus"}}</p>
+	    <p>{{view 'date-field' dateBinding="date"}}</p>
+	    <p>{{input value=description}}</p>
+	    <p>{{view Ember.Select
+	   		content=members
+	   		optionValuePath="content.id"
+	   		optionLabelPath="content.nick"
+	   		prompt="Select Payer"
+	   		selectionBinding="selectedPayer"
+		}}</p>
         <button {{action "close"}}>Add</button>
         <button {{action "cancel"}}>Cancel</button>
 	{{/if}}
