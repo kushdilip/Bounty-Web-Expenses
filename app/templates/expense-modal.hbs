@@ -30,7 +30,9 @@
 	   		prompt="Select Payer"
 	   		selectionBinding="selectedPayer"
 		}}</p>
-
+		<p>
+			{{checkbox-select model=this propertyPath="paidFor" elements=childList labelPath="nick"}}
+		</p>		
         <button {{action "close"}}>Add</button>
         <button {{action "cancel"}}>Cancel</button>
 	{{/if}}

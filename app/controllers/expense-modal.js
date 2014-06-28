@@ -1,7 +1,7 @@
 var ExpenseModalController = Em.Controller.extend({
 	content: {},
 	selectedPayer: null,
-
+	
 	childList: function () {
 		return this.store.find('member');
 	}.property('model'),
