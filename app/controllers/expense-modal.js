@@ -19,11 +19,10 @@ var ExpenseModalController = Em.Controller.extend({
 				expense.set('date', date);
 
 	        	var memberId = this.get('selectedPayer').id;
-
-	        	// this.store.find('member', memberId).then(function (m) {
-	        	// 	expense.set('paidBy', m);
-	        	// 	expense.save();
-	        	// })
+	        	this.store.find('member', memberId).then(function (m) {
+	        		expense.set('paidBy', m);
+	        		expense.save();
+	        	});
         		console.log("expense information edited")
         	}
         	else {
