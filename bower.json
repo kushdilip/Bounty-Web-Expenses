@@ -13,6 +13,9 @@
     "ember-qunit-notifications": "^0.0.1",
     "ember-cli-test-loader": "rjackson/ember-cli-test-loader#0.0.2",
     "bootstrap": "~3.1.1",
-    "moment": "~2.7.0"
+    "moment": "~2.7.0",
+    "d3": "~3.4.8",
+    "underscore": "~1.6.0",
+    "d3-tip": "~0.6.4"
   }
 }

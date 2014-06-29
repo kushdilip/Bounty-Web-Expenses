@@ -20,5 +20,7 @@ var app = new EmberApp();
 app.import('vendor/bootstrap/dist/css/bootstrap.min.css');
 app.import('vendor/bootstrap/dist/css/bootstrap-theme.min.css');
 app.import('vendor/moment/moment.js');
-
+app.import('vendor/d3/d3.min.js');
+app.import('vendor/d3-tip/index.js');
+app.import('vendor/underscore/underscore.js');
 module.exports = app.toTree();
