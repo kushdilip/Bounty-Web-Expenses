@@ -1,6 +1,10 @@
 var ApplicationRoute = Ember.Route.extend({
   actions: {
     openMemberModal: function(modalName, model) {
+      if (!model) {
+        model = {name: "TEST", nick: "TEST", description:"description"}
+      }
+
       this.controllerFor(modalName).set('model', model);
       return this.render(modalName, {
         into: 'application',

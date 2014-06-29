@@ -29,6 +29,7 @@
 					<td>{{expense.paidBy.nick}}</td>
 					<td>{{expense.amount}}</td>
 					<td>
+						{{expense.paidFor.length}}
 						{{#each member in expense.paidFor}}
 							{{member.nick}}
 						{{/each}}

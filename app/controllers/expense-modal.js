@@ -2,14 +2,12 @@ var ExpenseModalController = Em.Controller.extend({
 	content: {},
 	selectedPayer: null,
 
-	childList: function () {
-		return this.store.find('member');
-	}.property('model'),
+	// childList: function () {
+	// 	return this.store.all('member');
+	// }.property(),
 	
 	members: function () {
-		return this.store.all('member').content.map(function (m) {
-			return {id: m.id, nick: m.get('nick')}
-		});
+		return this.store.all('member');		
 	}.property(),
 
 	actions: {
@@ -22,10 +20,10 @@ var ExpenseModalController = Em.Controller.extend({
 
 	        	var memberId = this.get('selectedPayer').id;
 
-	        	this.store.find('member', memberId).then(function (m) {
-	        		expense.set('paidBy', m);
-	        		expense.save();
-	        	})
+	        	// this.store.find('member', memberId).then(function (m) {
+	        	// 	expense.set('paidBy', m);
+	        	// 	expense.save();
+	        	// })
         		console.log("expense information edited")
         	}
         	else {
@@ -50,18 +48,18 @@ var ExpenseModalController = Em.Controller.extend({
 	        		expense.set('paidBy', m);
 	        	});
 
+	        	console.log(paidFor.get('length'))
+
 	        	expense.get('paidFor').then(function (selectedPaidFor) {
 	        		paidFor.forEach(function (pf) {
-	        			console.log(pf.id)
+	        			// console.log(pf.id)
 	        			that.store.find('member', pf.id).then(function (m) {
 	        				selectedPaidFor.addObject(m);
 	        				// expense.set('paidFor', selectedPaidFor);
-	        				expense.save();
+	        				selectedPaidFor.save();
 	        			});
 	        		});
-	        	});
-				
-
+	        	});				
         	}
 
             return this.send('closeModal');

@@ -7,16 +7,17 @@ var MemberModalController = Em.Controller.extend({
         		console.log("member information edited")
         	}
         	else {
-	        	var member = this.getProperties("name", "nick", "description")
+	        	var name = this.get('model.name');
+	        	var nick = this.get('model.nick');
+	        	var description = this.get('model.description');
 	        	var id = this.store.all('member').get('length') + 1;
-	        	console.log("I'm from add box",id, member);
-				if (member.name && member.nick) {
+				if (name && nick) {
 					console.log("creating record")
 					this.store.createRecord('member', {
 						id: id,
-						name: member.name,
-						nick: member.nick,
-						description: member.description ? member.description : ""
+						name: name,
+						nick: nick,
+						description: description ? description : ""
 					});
 				};
 			}

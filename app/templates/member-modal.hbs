@@ -18,9 +18,9 @@
       {{else}}
           <h3 class="flush--top">Add Person</h5><hr>
           {{!-- <form {{action close this on="submit"}}> --}}
-          <p>{{input value=name placeholder="Name" autofocus="autofocus"}}</p>
-          <p>{{input value=nick placeholder="Nick Name"}}</p>
-          <p>{{input value=description placeholder="Description"}}</p>
+          <p>{{input value=model.name placeholder="Name" autofocus="autofocus"}}</p>
+          <p>{{input value=model.nick placeholder="Nick Name"}}</p>
+          <p>{{input value=model.description placeholder="Description"}}</p>
           <button {{action "close"}}>Add</button>
           <button {{action "cancel"}}>Cancel</button>
           {{!-- </form> --}}

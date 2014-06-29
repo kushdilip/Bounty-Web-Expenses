@@ -12,7 +12,7 @@ export default Ember.ObjectController.extend({
     selectedChanged: function() {
         var expense = this.get('content');
         // if (expense){
-            console.log(this.get('parentController'))
+            // console.log(this.get('parentController'))
             var paidFor = this.get('parentController.elementsOfProperty');
             if (paidFor) {
                 if (this.get('selected')) {                                    

@@ -14,7 +14,7 @@
 	   		selectionBinding="selectedPayer"
 		}}
 		<p>
-			{{checkbox-select model=model propertyPath="paidFor" elements=childList labelPath="nick"}}
+			{{checkbox-select model=model propertyPath="paidFor" elements=members labelPath="nick"}}
 		</p>
 	    <button {{action "close" this}}>Save</button>
 	{{else}}
@@ -30,7 +30,7 @@
 	   		selectionBinding="selectedPayer"
 		}}</p>
 		<p>
-			{{checkbox-select model=model propertyPath="paidFor" elements=childList labelPath="nick"}}
+			{{checkbox-select model=model propertyPath="paidFor" elements=members labelPath="nick"}}
 		</p>
         <button {{action "close"}}>Add</button>
         <button {{action "cancel"}}>Cancel</button>
