@@ -55,16 +55,10 @@ export default Ember.Component.extend({
     .on('mouseout', tip.hide);
   },
   
-  didInsertElement: function(){
-    // console.log(this.get('data'))
-    var that = this;
-    this.get('data')[0].then(function (expense) {
-      var data = expense.content.map(function (e) {
-        return {"xdata": e.get('paidBy').get('nick'), "ydata": e.get('amount')};
-      });
+  callDraw: function (data) {
       var groupByX = _.groupBy(data, 'xdata');
       var aggrData = [];
-      console.log(groupByX);
+      // console.log(groupByX);
 
       //agreegating common data
       for(var x_key in groupByX){
@@ -74,11 +68,44 @@ export default Ember.Component.extend({
         aggrData.push({xdata: x_key, ydata: foo})
       }
 
-      console.log(aggrData)
-      data = Ember.A(aggrData);
+      aggrData = _.sortBy(aggrData, "xdata"); //Sorting based on xdata
+      data = Ember.A(aggrData); //Coverting to ember array
 
-      that.set('data', data)
-      that.draw();
+      this.set('data', data)
+      this.draw();        
+  },
+
+  didInsertElement: function(){
+    // console.log(this.get('data'))
+    var that = this;
+    // var callDraw = this.callDraw;
+    var raw_data = [];
+    var plotKind = this.get('plotKind');
+
+    this.get('data')[0].then(function (expense) {
+      switch(plotKind) {
+        case 'memberWisePaid':
+          raw_data = expense.content.map(function (e) {
+            return {"xdata": e.get('paidBy').get('nick'), "ydata": e.get('amount')};
+          });
+          that.callDraw(raw_data);
+          break;
+        case 'memberWiseSpend':
+          var length_e = expense.get('length');
+          expense.content.map(function (e) {
+            e.get('paidFor').then(function (p) {
+              var length_p = p.get('length');
+              var foo = p.content.map(function (pf) {
+                return {"xdata": pf.get('nick'), "ydata": e.get('amount')/length_p};
+              });
+              raw_data.push.apply(raw_data, foo);
+              if (!(--length_e)) that.callDraw(raw_data);
+            });
+          });
+          break;
+        default:
+          data = [];
+      }
     });
   }
 });
