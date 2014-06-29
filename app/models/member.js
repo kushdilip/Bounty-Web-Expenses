@@ -17,6 +17,18 @@ Member.reopenClass({
 			name: 'Deepak Kushwaha', 
 			nick: 'Deepak', 
 			description: 'Intern'
+		},
+		{
+			id: 3, 
+			name: 'Vikas Aryan', 
+			nick: 'Vikas', 
+			description: 'Embeded Engineer'
+		},
+		{
+			id: 4, 
+			name: 'Suraj Ravi', 
+			nick: 'Suraj',
+			description: 'Wireless Engineer'
 		}
 	]
 });
