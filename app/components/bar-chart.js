@@ -90,6 +90,7 @@ export default Ember.Component.extend({
           });
           that.callDraw(raw_data);
           break;
+ 
         case 'memberWiseSpend':
           var length_e = expense.get('length');
           expense.content.map(function (e) {

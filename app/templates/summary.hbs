@@ -1,7 +1,20 @@
 <div>
-	<h4>1. Cash Paid Per Person</h4>
-	{{bar-chart width=500 height=260 data=model plotKind="memberWisePaid"}}
-	<hr>
-	<h4>2. Cash Spent Per Person</h4>
-	{{bar-chart width=500 height=260 data=model plotKind="memberWiseSpend"}}
+	<div>
+		<h4>Net Expense Per Person</h4>
+		<ol>
+			{{#each item in netExpense}}
+			  <li>{{item.nick}} : {{item.amount}}</li>
+			{{/each}}
+		</ol>		
+	</div>
+	<div>		
+		<hr>
+		<h4>1. Cash Paid By Per Person</h4>
+		{{bar-chart width=500 height=260 data=model plotKind="memberWisePaid"}}
+	</div>
+	<div>
+		<hr>
+		<h4>2. Cash Spent For Per Person</h4>
+		{{bar-chart width=500 height=260 data=model plotKind="memberWiseSpend"}}
+	</div>
 </div>

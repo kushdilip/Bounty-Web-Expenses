@@ -28,7 +28,7 @@ var ExpenseModalController = Em.Controller.extend({
         	else {
 	        	var id = this.store.all('expense').get('length') + 1;
 	        	var date = this.get('model.date');
-	        	var amount = this.get('model.amount')
+	        	var amount = +this.get('model.amount')
 	        	var description = this.get('model.description');
 	        	var memberId = this.get('selectedPayer').id;
 	        	var paidFor = this.get('model.paidFor');
