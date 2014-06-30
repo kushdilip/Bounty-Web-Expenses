@@ -18,14 +18,16 @@
 		</div>
 	</div>
 
-	<div id="cash-paid">		
-		<hr>
-		<h4>3. Cash Paid By Per Person(in &#8377;)</h4>
-		{{bar-chart width=500 height=260 data=model plotKind="memberWisePaid"}}
-	</div>
-	<div id="cash-spent">
-		<hr>
-		<h4>2. Cash Spent For Per Person(in &#8377;)</h4>
-		{{bar-chart width=500 height=260 data=model plotKind="memberWiseSpend"}}
+	<div class="row">
+		<div id="cash-paid" class="col-md-6">		
+			<hr>
+			<h4>3. Cash Paid By Per Person(in &#8377;)</h4>
+			{{bar-chart width=500 height=260 data=model plotKind="memberWisePaid"}}
+		</div>
+		<div id="cash-spent" class="col-md-6">
+			<hr>
+			<h4>4. Cash Spent For Per Person(in &#8377;)</h4>
+			{{bar-chart width=500 height=260 data=model plotKind="memberWiseSpend"}}
+		</div>
 	</div>
 </div>
