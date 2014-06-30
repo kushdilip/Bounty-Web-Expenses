@@ -23,4 +23,6 @@ app.import('vendor/moment/moment.js');
 app.import('vendor/d3/d3.min.js');
 app.import('vendor/d3-tip/index.js');
 app.import('vendor/underscore/underscore.js');
+app.import('vendor/fontawesome/css/font-awesome.css');
+
 module.exports = app.toTree();

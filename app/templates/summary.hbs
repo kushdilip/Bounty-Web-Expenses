@@ -1,20 +1,31 @@
 <div>
-	<div>
-		<h4>Net Expense Per Person</h4>
-		<ol>
-			{{#each item in netExpense}}
-			  <li>{{item.nick}} : {{item.amount}}</li>
-			{{/each}}
-		</ol>		
+	<div class="row">
+		<div id="settlement" class="col-md-6">
+			<h4>1. Settlements</h4>
+			<ol>
+				{{#each item in transfers}}
+				  <li>{{item.from}}  <i class="fa fa-long-arrow-right fa-2x"></i> &#8377; {{item.amount}}  <i class="fa fa-long-arrow-right fa-2x"></i> {{item.to}}</li>
+				{{/each}}
+			</ol>
+		</div>
+		<div id="net-expense" class="col-md-6">
+			<h4>2. Net Expense Per Person</h4>
+			<ol>
+				{{#each item in netExpense}}
+				  <li>{{item.nick}} : &#8377; {{item.amount}}</li>
+				{{/each}}
+			</ol>		
+		</div>
 	</div>
-	<div>		
+
+	<div id="cash-paid">		
 		<hr>
-		<h4>1. Cash Paid By Per Person</h4>
+		<h4>3. Cash Paid By Per Person(in &#8377;)</h4>
 		{{bar-chart width=500 height=260 data=model plotKind="memberWisePaid"}}
 	</div>
-	<div>
+	<div id="cash-spent">
 		<hr>
-		<h4>2. Cash Spent For Per Person</h4>
+		<h4>2. Cash Spent For Per Person(in &#8377;)</h4>
 		{{bar-chart width=500 height=260 data=model plotKind="memberWiseSpend"}}
 	</div>
 </div>
